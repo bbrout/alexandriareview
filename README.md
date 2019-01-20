@@ -2,14 +2,23 @@
 decentralised peer review system
 
 The Alexandria Review
+
 Decentralized peer review and publication of academic articles.
+
 By Cameron Rout (rout@) - Draft 1/25/2018
+
 Overview
+
 Recent news
+
 Value propositions
+
 Use cases
+
 Features
+
 Open issues
+
 Dapp Features
 Detailed dapp requirements by user journey
 Submission process

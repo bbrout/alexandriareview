@@ -1,7 +1,7 @@
 # alexandriareview
 decentralised peer review system
 
-﻿The Alexandria Review
+The Alexandria Review
  
  Decentralized peer review and publication of academic articles.
  

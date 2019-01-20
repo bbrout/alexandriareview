@@ -39,11 +39,7 @@ This protocol enables editors to submit academic papers for double blind peer re
 ### Value propositions
 
 • University libraries (and other institutions) can function as publishers of peer-reviewed work without requiring third-party intermediary (i.e. journals) to ensure a trustworthy review process.
-
 • Academic institutions can enter into agreements directly with each other for the publication of work without a third party journal subscription.
-
 • Authors can archive comments along with their work without disclosing the identity of the reviewers.
-
 • The merit of institutions can be rewarded with full transparency in the peer review process.
-
 • Publication fees and subscription revenues can be earned by university editors and peer reviewers rather than third party journals.

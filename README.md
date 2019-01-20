@@ -36,7 +36,7 @@ This protocol enables editors to submit academic papers for double blind peer re
 
 • South Korean Universities Make Deal with Elsevier
 
-Value propositions
+### Value propositions
 
 • University libraries (and other institutions) can function as publishers of peer-reviewed work without requiring third-party intermediary (i.e. journals) to ensure a trustworthy review process.
 

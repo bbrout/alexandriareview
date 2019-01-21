@@ -91,10 +91,12 @@ Researcher / Student
    - Institutional reviews: The publication can require peer review from another institution for submissions. In this case, the submission is sent to a specialized publication that is intended only for peer reviews. For example, University A requires at least one review from University B or C in addition to their own peer review process in order to publish. Each university has a publication that allows submissions from the other two universities known as the review journal. University A submits the paper for publication in the review journal of the other two universities, if it is published, then the requirement is met. In this way, the ivy league may decide to require each paper to be reviewed by another institution while the author from Yale does not need to worry about bias from Harvard reviewers.
    - Pay to download: Editors accept orders to view documents and fulfil them by encrypting a file with the subscriber’s public key and broadcasting the infohash to the blockchain with an acceptance of the request. The file is then submitted to the storage network (i.e. BitTorrent).
 
+### Simplified overview of the decentralized publication process
 
-![Simplified overview of the decentralized publication process... click here](https://github.com/bbrout/alexandriareview/blob/master/image1.png)
+![Simplified overview of the decentralized publication process](https://github.com/bbrout/alexandriareview/blob/master/image1.png)
 
-![Example of recursive review... click here](https://github.com/bbrout/alexandriareview/blob/master/image2.png)
+### Example of recursive review
+![Example of recursive review](https://github.com/bbrout/alexandriareview/blob/master/image2.png)
 
 ## Open issues
 

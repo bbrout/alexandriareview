@@ -136,301 +136,301 @@ Is it necessary to handle both the review process and the download/distribution 
 ### Submission process
 
 Author submits article
-    - BE: Index the blockchain for relevant publications
-    - UI: Select public address of publication from the index
-    - UI: Review terms of submission
-    - UI:: Identify local file for submission
-    - UI: Select action: Submit paper
-    - UI: Confirm submission
-    - BE: Generate anonymous submission address
-    - BE: Generate infoHash of the unencrypted file
-    - BE: Encrypt submission file with editor’s public key
-    - BE: Generate infoHash of the encrypted file
-    - BE: Sign escrow transaction for publication fee
-    - BE: Generate and sign submission order
-        ◦ Submission ID (Unencrypted infoHash)
-        ◦ Editor’s address
-        ◦ Publication ID
-        ◦ Submission address
-        ◦ InfoHash of the encrypted file
-        ◦ Signed escrow transaction
-    - BE: Generate .torrent file from encrypted submission
-    - BE: Submit submission order to the blockchain
-    - BE: Broadcast .torrent to the network.
+   - BE: Index the blockchain for relevant publications
+   - UI: Select public address of publication from the index
+   - UI: Review terms of submission
+   - UI: Identify local file for submission
+   - UI: Select action: Submit paper
+   - UI: Confirm submission
+   - BE: Generate anonymous submission address
+   - BE: Generate infoHash of the unencrypted file
+   - BE: Encrypt submission file with editor’s public key
+   - BE: Generate infoHash of the encrypted file
+   - BE: Sign escrow transaction for publication fee
+   - BE: Generate and sign submission order
+     - Submission ID (Unencrypted infoHash)
+     - Editor’s address
+     - Publication ID
+     - Submission address
+     - InfoHash of the encrypted file
+     - Signed escrow transaction
+   - BE: Generate .torrent file from encrypted submission
+   - BE: Submit submission order to the blockchain
+   - BE: Broadcast .torrent to the network.
 
 Editor reviews article
-    - BE: Scan blockchain for orders to the editor’s address
-    - BE: Verify order and escrowed fee
-    - BE: Download .torrent by the encrypted infoHash magnet
-    - BE: Decrypt file and verify unencrypted infoHash
-    - BE: IF file and transaction are NOT valid. 
-        ◦ Reject order (off-chain)
-        ◦ ELSE: Notify editor of submission
-    - UI: Review decrypted submission
+   - BE: Scan blockchain for orders to the editor’s address
+   - BE: Verify order and escrowed fee
+   - BE: Download .torrent by the encrypted infoHash magnet
+   - BE: Decrypt file and verify unencrypted infoHash
+   - BE: IF file and transaction are NOT valid. 
+     - Reject order (off-chain)
+     - ELSE: Notify editor of submission
+   - UI: Review decrypted submission
 
 Editor requests resubmission
-    - UI: Write editorial comments
-    - UI: Select action: request resubmission
-    - UI: Confirm request for resubmission
-    - BE: Generate infoHash of unencrypted comments
-    - BE: Encrypt comments with the public key of author
-    - BE: Generate infoHash of encrypted comments
-    - BE: Generate and sign Resubmission Request Order
-        ◦ Submission ID
-        ◦ Comments’ encrypted infoHash
-        ◦ Comments’ unencrypted infoHash
-    - BE: Generate .torrent file from encrypted comments file
-    - BE: Broadcast .torrent to network
+   - UI: Write editorial comments
+   - UI: Select action: request resubmission
+   - UI: Confirm request for resubmission
+   - BE: Generate infoHash of unencrypted comments
+   - BE: Encrypt comments with the public key of author
+   - BE: Generate infoHash of encrypted comments
+   - BE: Generate and sign Resubmission Request Order
+     - Submission ID
+     - Comments’ encrypted infoHash
+     - Comments’ unencrypted infoHash
+   - BE: Generate .torrent file from encrypted comments file
+   - BE: Broadcast .torrent to network
 
 Author responds to comments from editor
-    - BE: Scan blockchain for orders referencing the unencrypted infoHash
-    - BE: Verify order signature from editor
-    - BE: Download .torrent of comments by infoHash magnet
-    - BE: Decrypt comments file and verify by unencrypted infoHash
-    - BE: Notify author of request for resubmission
-    - UI: Review comments
-    - UI: Revise paper
-    - UI: Identify revised paper on local system
-    - UI: Select action: resubmit paper
-    - UI: Confirm selection
-    - BE: Generate infoHash of unencrypted resubmission file
-    - BE: Encrypt revision with editor public key
-    - BE: Generate infoHash of encrypted resubmission file
-    - BE: Generate and sign resubmission order
-        ◦ Editor’s address
-        ◦ Submission address
-        ◦ Submission ID
-        ◦ Previous revision ID
-        ◦ New revision ID (InfoHash of encrypted resubmission file)
-        ◦ Signed transaction
-    - BE: Generate .torrent file from encrypted resubmission
-    - BE: Submit resubmission order to the blockchain
-    - BE: Broadcast resubmission .torrent to the network.
+   - BE: Scan blockchain for orders referencing the unencrypted infoHash
+   - BE: Verify order signature from editor
+   - BE: Download .torrent of comments by infoHash magnet
+   - BE: Decrypt comments file and verify by unencrypted infoHash
+   - BE: Notify author of request for resubmission
+   - UI: Review comments
+   - UI: Revise paper
+   - UI: Identify revised paper on local system
+   - UI: Select action: resubmit paper
+   - UI: Confirm selection
+   - BE: Generate infoHash of unencrypted resubmission file
+   - BE: Encrypt revision with editor public key
+   - BE: Generate infoHash of encrypted resubmission file
+   - BE: Generate and sign resubmission order
+     - Editor’s address
+     - Submission address
+     - Submission ID
+     - Previous revision ID
+     - New revision ID (InfoHash of encrypted resubmission file)
+     - Signed transaction
+   - BE: Generate .torrent file from encrypted resubmission
+   - BE: Submit resubmission order to the blockchain
+   - BE: Broadcast resubmission .torrent to the network.
 
 Editor reviews resubmission
-    - BE: Scan blockchain for orders to the editor’s address
-    - BE: Verify resubmission order
-    - BE: Download .torrent by encrypted infoHash magnet
-    - BE: Decrypt file and verify unencrypted infoHash
-    - UI: Review decrypted resubmission
+   - BE: Scan blockchain for orders to the editor’s address
+   - BE: Verify resubmission order
+   - BE: Download .torrent by encrypted infoHash magnet
+   - BE: Decrypt file and verify unencrypted infoHash
+   - UI: Review decrypted resubmission
 
 ### Peer Review process
 
 Editor submits paper for peer review from specific reviewers
-    - UI: Select public addresses of specific reviewers
-    - UI: Select decrypted version of paper on local system
-    - UI: Select action: Request Review
-    - UI: Enter/Confirm the reviewer fee
-    - UI: Confirm request for review
-    - BE: Encrypt the latest version with the public keys of the intended reviewer (one each)
-    - BE: Retrieve addresses of all members of reviewer’s group
-    - BE: Generate and sign Request for Review orders for each member of the reviewer group
-        ◦ Submission ID
-        ◦ Publication ID
-        ◦ Revision ID
-        ◦ Editor’s address
-        ◦ Infohash of encrypted submission
-        ◦ Signed escrow transaction for reviewer fees
-        ◦ Request for review: true / false
-        ◦ Request type: individual
-    - BE: Encrypt Request for Review with vk of each group member
-    - BE: Generate .torrent file of encrypted revision for each intended reviewer (one each)
-    - BE: Broadcast .torrent to network
-    - BE: Submit R4R orders to blockchain
+   - UI: Select public addresses of specific reviewers
+   - UI: Select decrypted version of paper on local system
+   - UI: Select action: Request Review
+   - UI: Enter/Confirm the reviewer fee
+   - UI: Confirm request for review
+   - BE: Encrypt the latest version with the public keys of the intended reviewer (one each)
+   - BE: Retrieve addresses of all members of reviewer’s group
+   - BE: Generate and sign Request for Review orders for each member of the reviewer group
+     - Submission ID
+     - Publication ID
+     - Revision ID
+     - Editor’s address
+     - Infohash of encrypted submission
+     - Signed escrow transaction for reviewer fees
+     - Request for review: true / false
+     - Request type: individual
+   - BE: Encrypt Request for Review with vk of each group member
+   - BE: Generate .torrent file of encrypted revision for each intended reviewer (one each)
+   - BE: Broadcast .torrent to network
+   - BE: Submit R4R orders to blockchain
 
 Editor submits paper for peer review from pool of reviewers
-    - UI: Select reviewer group
-    - UI: Enter the number of reviewers requested from the pool
-    - UI: Select decrypted revision of paper on local system
-    - UI: Select action: Request Review
-    - UI: Confirm request for review
-    - BE: Identify public reviewer group key (RGK) of the specialist group on the correct topic
-    - BE: Encrypt latest version with the RGK
-    - BE: Sign escrow transaction to RGK for portion of submission fee
-    - BE: Generate and sign Request for Review order (R4R))
-        ◦ Editor’s address
-        ◦ Submission ID
-        ◦ Submission address
-        ◦ Encrypted infohash
-        ◦ Revision ID (Unencrypted infohash)
-        ◦ Signed escrow transaction for reviewer fees
-        ◦ Request type: pool
-    - BE: Generate .torrent file from RGK encrypted version
-    - BE: Submit R4R order to blockchain
-    - BE: Broadcast .torrent to network.
+   - UI: Select reviewer group
+   - UI: Enter the number of reviewers requested from the pool
+   - UI: Select decrypted revision of paper on local system
+   - UI: Select action: Request Review
+   - UI: Confirm request for review
+   - BE: Identify public reviewer group key (RGK) of the specialist group on the correct topic
+   - BE: Encrypt latest version with the RGK
+   - BE: Sign escrow transaction to RGK for portion of submission fee
+   - BE: Generate and sign Request for Review order (R4R))
+     - Editor’s address
+     - Submission ID
+     - Submission address
+     - Encrypted infohash
+     - Revision ID (Unencrypted infohash)
+     - Signed escrow transaction for reviewer fees
+     - Request type: pool
+   - BE: Generate .torrent file from RGK encrypted version
+   - BE: Submit R4R order to blockchain
+   - BE: Broadcast .torrent to network.
 
 Reviewer reviews R4R
-    - BE: Scan blockchain for R4R orders referencing the reviewer’s address and group addresses
-    - BE: Verify order signature from editor
-    - BE: Decrypt individual R4R orders with pk and check if Request for Review is true
-    - BE: Download .torrent by infoHash magnet
-    - BE: Decrypt revision file and verify by unencrypted infoHash
-    - BE: Notify FE of request for review
-    - UI: Review paper
+   - BE: Scan blockchain for R4R orders referencing the reviewer’s address and group addresses
+   - BE: Verify order signature from editor
+   - BE: Decrypt individual R4R orders with pk and check if Request for Review is true
+   - BE: Download .torrent by infoHash magnet
+   - BE: Decrypt revision file and verify by unencrypted infoHash
+   - BE: Notify FE of request for review
+   - UI: Review paper
 
 Reviewer accepts R4R (pool)
-    - UI: Select action: accept request for review
-    - BE: Generate new anonymous reviewer address
-    - BE: Accept reviewer fee by signing escrow transaction from RGK to anonymous reviewer address
-    - BE: Generate Review Request Response (RRR) order
-        ◦ New reviewer address
-        ◦ Submission ID
-        ◦ Submission address
-        ◦ Editor address
-        ◦ Accept request (true/false)
-        ◦ Signed escrow transaction
-    - BE: Sign R4R order with Group Ring Signature (GRS) proving they are a faculty member
-    - BE: Submit R4R to blockchain from anonymous reviewer address
-    - BE: Scan blockchain to determine if maximum number of acceptance orders have already been submitted.
+   - UI: Select action: accept request for review
+   - BE: Generate new anonymous reviewer address
+   - BE: Accept reviewer fee by signing escrow transaction from RGK to anonymous reviewer address
+   - BE: Generate Review Request Response (RRR) order
+     - New reviewer address
+     - Submission ID
+     - Submission address
+     - Editor address
+     - Accept request (true/false)
+     - Signed escrow transaction
+   - BE: Sign R4R order with Group Ring Signature (GRS) proving they are a faculty member
+   - BE: Submit R4R to blockchain from anonymous reviewer address
+   - BE: Scan blockchain to determine if maximum number of acceptance orders have already been submitted.
 
 Reviewer accepts R4R (individual)
-    - UI: Select action: accept request for review
-    - BE: Generate new anonymous reviewer address
-    - BE: Accept reviewer fee by signing escrow transaction from RGK to anonymous reviewer address
-    - BE: Generate Review Request Response (RRR) order
-        ◦ New reviewer address
-        ◦ Submission ID
-        ◦ Submission address
-        ◦ Editor address
-        ◦ Accept request (true/false)
-        ◦ Decrypted R4R order with value = TRUE (signed by editor)
-            ▪ Proves the address was generated by an intended reviewer
-        ◦ Signed escrow transaction to anonymous reviewer address
-    - BE: Sign R4R order with Group Ring Signature (GRS) proving they are a faculty member
-    - BE: Submit R4R to blockchain from anonymous reviewer address
+   - UI: Select action: accept request for review
+   - BE: Generate new anonymous reviewer address
+   - BE: Accept reviewer fee by signing escrow transaction from RGK to anonymous reviewer address
+   - BE: Generate Review Request Response (RRR) order
+     - New reviewer address
+     - Submission ID
+     - Submission address
+     - Editor address
+     - Accept request (true/false)
+     - Decrypted R4R order with value = TRUE (signed by editor)
+       - Proves the address was generated by an intended reviewer
+     - Signed escrow transaction to anonymous reviewer address
+   - BE: Sign R4R order with Group Ring Signature (GRS) proving they are a faculty member
+   - BE: Submit R4R to blockchain from anonymous reviewer address
 
 Reviewer submits comments
-    - UI: Write comments
-    - UI: Select action: submit comments
-    - UI: Confirm action
-    - BE: Encrypt comments with public key of Author
-    - BE: Encrypt comments with public key of Editor
-    - BE: Generate Reviewer Comment order
-        ◦ Submission ID
-        ◦ Revision ID
-        ◦ Comment ID (Infohash of unencrypted file)
-        ◦ Editor infohash
-        ◦ Author infohash
-        ◦ Editor address
-        ◦ Submission address
-    - BE: Sign reviewer comment order with GRS
-    - BE: Generate .torrent file for Editor
-    - BE: Generate .torrent file for Author
-    - BE: Submit reviewer comment order to blockchain
-    - BE: Submit torrents to network
+   - UI: Write comments
+   - UI: Select action: submit comments
+   - UI: Confirm action
+   - BE: Encrypt comments with public key of Author
+   - BE: Encrypt comments with public key of Editor
+   - BE: Generate Reviewer Comment order
+     - Submission ID
+     - Revision ID
+     - Comment ID (Infohash of unencrypted file)
+     - Editor infohash
+     - Author infohash
+     - Editor address
+     - Submission address
+   - BE: Sign reviewer comment order with GRS
+   - BE: Generate .torrent file for Editor
+   - BE: Generate .torrent file for Author
+   - BE: Submit reviewer comment order to blockchain
+   - BE: Submit torrents to network
 
 Editor verifies reviewer to author (passive)
-    - BE: Scan the blockchain for reviewer comments to editor address
-    - BE: Verifies the order signature from RGK
-    - BE: Signs the order from the Editor private key
-    - BE: Submits signed order to blockchain
+   - BE: Scan the blockchain for reviewer comments to editor address
+   - BE: Verifies the order signature from RGK
+   - BE: Signs the order from the Editor private key
+   - BE: Submits signed order to blockchain
 
 Author reads reviewer comments
-    - BE: Scan the blockchain for Reviewer Comment orders sent to submission address
-    - BE: Verify signature from editor
-    - BE: Download torrent using author infohash
-    - BE: Decrypt comment file and verify infohash
-    - BE: Notify FE of new comment
-    - UI: Review comments
+   - BE: Scan the blockchain for Reviewer Comment orders sent to submission address
+   - BE: Verify signature from editor
+   - BE: Download torrent using author infohash
+   - BE: Decrypt comment file and verify infohash
+   - BE: Notify FE of new comment
+   - UI: Review comments
 
 Author responds to reviewer comment
-    - UI: Write response
-    - UI: Revise paper (optional)
-    - UI: Select action: respond to comment
-    - UI: Confirm action
-    - BE: Encrypt comments and revision with public key of reviewer
-    - BE: Encrypt comments and revision with public key of editor
-    - BE: Generate and sign Respond to Comment order
-        ◦ Submission ID
-        ◦ Previous revision ID
-        ◦ New revision ID (can be the same as previous if no change)
-        ◦ Comment ID
-        ◦ Editor infohash (comments)
-        ◦ Editor infohash (revision)
-        ◦ Reviewer infohash (comments)
-        ◦ Reviewer infohash (revision)
-        ◦ Reviewer address
-    - BE: Generate 4 .torrent files (comments and revision for editor and reviewer)
-    - BE: Submit Respond to Comment order to blockchain
-    - BE: Submit torrents to network
+   - UI: Write response
+   - UI: Revise paper (optional)
+   - UI: Select action: respond to comment
+   - UI: Confirm action
+   - BE: Encrypt comments and revision with public key of reviewer
+   - BE: Encrypt comments and revision with public key of editor
+   - BE: Generate and sign Respond to Comment order
+     - Submission ID
+     - Previous revision ID
+     - New revision ID (can be the same as previous if no change)
+     - Comment ID
+     - Editor infohash (comments)
+     - Editor infohash (revision)
+     - Reviewer infohash (comments)
+     - Reviewer infohash (revision)
+     - Reviewer address
+   - BE: Generate 4 .torrent files (comments and revision for editor and reviewer)
+   - BE: Submit Respond to Comment order to blockchain
+   - BE: Submit torrents to network
 
 Reviewer submits recommendation
-    - UI: Select action: Recommend publication True / False
-    - UI: Confirm selection
-    - BE: Generate Publication Recommendation order
-        ◦ Submission ID
-        ◦ Recommendation (true/false)
-        ◦ Editor Address
-    - BE: Sign Publication Recommendation order with GRS
-    - BE: Submit Publication Recommendation order to EDITOR (offchain)
+   - UI: Select action: Recommend publication True / False
+   - UI: Confirm selection
+   - BE: Generate Publication Recommendation order
+     - Submission ID
+     - Recommendation (true/false)
+     - Editor Address
+   - BE: Sign Publication Recommendation order with GRS
+   - BE: Submit Publication Recommendation order to EDITOR (offchain)
 
 ### Publication process
 
 Editor approves/denies publication
-    - BE: Scans the blockchain for submissions that have met the criterion for publication
-    - BE: Notify FE
-    - UI: Review comments, revisions, and addendums
-    - UI: Select action: approve/reject publication
-    - BE: Generate torrent of public metadata (abstract etc.)
-    - BE: Generate and sign Approve Publication order
-        ◦ Submission ID
-        ◦ Publication ID
-        ◦ Revision ID
-        ◦ Public metadata infohash
-        ◦ Approval status (true/false)
-    - BE: Submit signed order to blockchain
-    - BE: Submit public metadata torrent to network
-    - Blockchain: Verifies requirements of publication are met
-        ◦ IF TRUE: Executes signed fee transactions
-            ▪ Publication fee in escrow from author to editor
-            ▪ Reviewer fees in escrow from editor to reviewers
-        ◦ IF FALSE: sends refund in escrow to author
+   - BE: Scans the blockchain for submissions that have met the criterion for publication
+   - BE: Notify FE
+   - UI: Review comments, revisions, and addendums
+   - UI: Select action: approve/reject publication
+   - BE: Generate torrent of public metadata (abstract etc.)
+   - BE: Generate and sign Approve Publication order
+     - Submission ID
+     - Publication ID
+     - Revision ID
+     - Public metadata infohash
+     - Approval status (true/false)
+   - BE: Submit signed order to blockchain
+   - BE: Submit public metadata torrent to network
+   - Blockchain: Verifies requirements of publication are met
+     - IF TRUE: Executes signed fee transactions
+       - Publication fee in escrow from author to editor
+       - Reviewer fees in escrow from editor to reviewers
+     - IF FALSE: sends refund in escrow to author
 
 ### End user experience
 
 User reviews abstracts of a publication
-    - UI: Find publication ID
-    - UI: Select action: review publication
-    - BE: Scan blockchain for Approve Publication orders by publication ID
-    - BE: Download public metadata torrent using infohash
-    - UI: Review public metadata
+   - UI: Find publication ID
+   - UI: Select action: review publication
+   - BE: Scan blockchain for Approve Publication orders by publication ID
+   - BE: Download public metadata torrent using infohash
+   - UI: Review public metadata
 
 User requests to download an article (no subscription)
-    - UI: Select submission ID
-    - UI: Select Action: Download paper
-    - BE: Generate and sign Download Request order
-        ◦ Submission ID
-        ◦ Signed escrow transaction to editor for 2x the download fee to editor address
-    - BE: Submit Bid for Download order to blockchain
+   - UI: Select submission ID
+   - UI: Select Action: Download paper
+   - BE: Generate and sign Download Request order
+     - Submission ID
+     - Signed escrow transaction to editor for 2x the download fee to editor address
+   - BE: Submit Bid for Download order to blockchain
 
 Editor fulfills a download request (no subscription)
-    - BE: Scan blockchain for Bid for Download orders
-    - BE: IF ACCEPT: 
-        ◦ Generate and sign download confirmation order
-        ◦ Encrypt download file with requestor’s public address
-            ▪ Published version of submission
-            ▪ Signed download confirmation order
-            ▪ High entropy nonce
-        ◦ Generate torrent of encrypted download file (containing confirmation)
-        ◦ Generate and sign Download order
-            ▪ Signed escrow transaction for 1X the download fee to requesting address
-            ▪ infoHash of encrypted file
-        ◦ Submit torrent to network
-        ◦ Submit Download order to blockchain
-    - BE: IF REJECT: send error to download address
+   - BE: Scan blockchain for Bid for Download orders
+   - BE: IF ACCEPT: 
+     - Generate and sign download confirmation order
+     - Encrypt download file with requestor’s public address
+       - Published version of submission
+       - Signed download confirmation order
+       - High entropy nonce
+     - Generate torrent of encrypted download file (containing confirmation)
+     - Generate and sign Download order
+       - Signed escrow transaction for 1X the download fee to requesting address
+       - infoHash of encrypted file
+     - Submit torrent to network
+     - Submit Download order to blockchain
+   - BE: IF REJECT: send error to download address
 
 User downloads an article
-    - BE: Scans blockchain for Download confirmation order
-    - BE: Download torrent using infohash
-    - BE: Decrypt downloaded file
-    - BE: Submit signed download confirmation to blockchain
-    - BE: Notify user
-    - UI: Read paper
-    - Blockchain: Confirm Download request order
-    - Blockchain: Confirm Download order
-    - Blockchain: Confirm Download Confirmation
-    - Blockchain: Send 2x download fee from user to editor
-    - Blockchain: Send 1x download fee from editor to user
+   - BE: Scans blockchain for Download confirmation order
+   - BE: Download torrent using infohash
+   - BE: Decrypt downloaded file
+   - BE: Submit signed download confirmation to blockchain
+   - BE: Notify user
+   - UI: Read paper
+   - Blockchain: Confirm Download request order
+   - Blockchain: Confirm Download order
+   - Blockchain: Confirm Download Confirmation
+   - Blockchain: Send 2x download fee from user to editor
+   - Blockchain: Send 1x download fee from editor to user
 
 
 Author: rout@

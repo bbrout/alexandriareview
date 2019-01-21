@@ -92,9 +92,9 @@ Researcher / Student
    - Pay to download: Editors accept orders to view documents and fulfil them by encrypting a file with the subscriber’s public key and broadcasting the infohash to the blockchain with an acceptance of the request. The file is then submitted to the storage network (i.e. BitTorrent).
 
 
-[Simplified overview of the decentralized publication process... click here](https://github.com/bbrout/alexandriareview/blob/master/image1.png)
+![Simplified overview of the decentralized publication process... click here](https://github.com/bbrout/alexandriareview/blob/master/image1.png)
 
-[Example of recursive review... click here](https://github.com/bbrout/alexandriareview/blob/master/image2.png)
+![Example of recursive review... click here](https://github.com/bbrout/alexandriareview/blob/master/image2.png)
 
 ## Open issues
 
